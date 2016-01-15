@@ -9,7 +9,7 @@ function Wallpaper(){
     this.url_begin = 'http://himawari8-dl.nict.go.jp/himawari8/img/D531106/1d/550/';
     this.url_end = '_0_0.png';
     this.filename = '';
-    this.folder = '/earthOfWallpaper/';
+    this.folder = '/wallpaperOfEarth/';
     this.command = 'gsettings set org.gnome.desktop.background picture-uri "file://path" && gsettings set org.gnome.desktop.background picture-options "centered" && gsettings set org.gnome.desktop.background primary-color "#000000"';
 }
 
