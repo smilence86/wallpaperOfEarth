@@ -6,7 +6,7 @@ How to use:
         1、create a cron script at /etc/cron.d/wallpaper, looks like:
 
             #!/bin/sh
-            */10 * * * * cd [your path]/earthOfWallpaper/ && ./wallpaper.sh
+            */10 * * * * cd [your path]/wallpaperOfEarth/ && ./wallpaper.sh
 
         2、git clone the code to local, exec “sudo chmod +x wallpaper.sh” in project path.
 
