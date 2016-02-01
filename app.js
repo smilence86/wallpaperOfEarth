@@ -74,9 +74,19 @@ Wallpaper.prototype.getDir = function(){
     });
 }
 
+//remove photos 3 days ago
 Wallpaper.prototype.removePhotos = function(path){
+    var that = this;
     return new Promise(function(resolve, reject){
-
+        var files = fs.readdirSync(path);
+        for(var i in files){
+            var Stat = fs.statSync(path + files[i]);
+            var n = new Date();
+            n.setDate(n.getDate() - 3);
+            if(n.getTime() > new Date(Stat.ctime).getTime()){
+                fs.unlinkSync(path + files[i]);
+            }
+        }
     });
 }
 
@@ -89,6 +99,8 @@ w.getDir().then(function(dir){
     return w.savePhoto(url);
 }).then(function(filepath){
     return w.setWallpaper(filepath);
+}).then(function(){
+    return w.removePhotos(w.folder);
 }).catch(function(e){
     console.error(e.stack || e);
 });
