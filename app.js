@@ -87,6 +87,7 @@ Wallpaper.prototype.removePhotos = function(path){
                 fs.unlinkSync(path + files[i]);
             }
         }
+        resolve();
     });
 }
 
